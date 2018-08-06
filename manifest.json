@@ -1,0 +1,42 @@
+{
+  "description": "Inhouse aidahbot tool that serves as a proxy server for redirection during development",
+  "manifest_version": 2,
+  "name": "aidahrector",
+  "version": "1.0",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>",
+    "activeTab",
+    "tabs", 
+    "storage", 
+    "webRequest", 
+    "notifications",
+    "webRequestBlocking"
+  ],
+
+  "browser_action": {
+      "default_icon": "img/logo-48.png",
+      "default_popup": "./home.html"
+   }, 
+
+  "icons": {
+      "128": "img/logo-128.png",
+      "16": "img/logo-16.png",
+      "48": "img/logo-48.png"
+   },
+
+  "background": { 
+    "scripts": [
+      "js/lib/vue.js",
+      "js/lib/underscore.js",
+      "js/background.js"
+    ] 
+  },
+
+  "content_scripts": [ {
+    "js": [ "js/bot.js" ],
+    "matches": [ "\u003Call_urls>" ]
+  }]
+}
