@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Aidirector</title>
+    <!-- <link href="./css/app.css" rel="stylesheet>"/> -->
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Mina');
+
+      * {
+        /* border: 1px solid red; */
+      }
+
+      #aidahrector  {
+        padding: 20px;
+        width: 300px;
+        box-sizing: border-box;
+      }
+      .app__name {
+        font-family: Mina;
+      }
+
+      .container header {
+        text-align: center;
+      }
+
+      input {
+        font-family: Mina;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: none;
+        border: 1px solid #e1e4e8;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .create__map {
+        width: 100%;
+        padding: 10px;
+        font-family: Mina;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #24a1a5;
+        border-radius: 4px;
+        border: none;
+      }
+
+      .create__map:hover {
+        cursor: pointer;
+        background-color: #24a1a5;
+        color: white;
+      }
+
+      .notification {
+        text-align: center;
+        text-transform: capitalize;
+      }
+
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+      }
+
+      .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="aidahrector">
+      <div class="container">
+        <header>
+          <img src="./img/logo-48.png" alt="aidahbot__logo"/>
+          <h3 class="app__name">{{name}}</h3>
+        </header>
+        <input v-model='rule.from' class="from__url" placeholder="from url"/>
+        <input v-model='rule.to' class="to__url" placeholder="to url"/>
+        <button class="create__map" @click='createMap'>create map</button>
+
+        <!-- <button v-on:click="show = !show">
+            Toggle
+        </button> -->
+
+        <transition name="fade">
+          <p class="notification" v-if="show">Mapping created!</p>
+        </transition>
+      </div>
+    </div>
+    
+    <script src="./js/lib/vue.js"></script>
+    <script src="./js/service.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
