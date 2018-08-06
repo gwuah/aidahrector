@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Mina');
+
+* {
+  /* border: 1px solid red; */
+}
+.app__name {
+  font-family: Mina;
+}
+
+.container header {
+  text-align: center;
+}
+
+input {
+  font-family: Mina;
+}
+
+.create__map {
+  width: 100%;
+  padding: 5px;
+  font-family: Mina;
+}
+
+.create__map:hover {
+  cursor: pointer;
+}
