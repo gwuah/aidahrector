@@ -2,6 +2,9 @@
 A simple chrome extension I built to speedup development.
 It redirects http requests to our production server to localhost.
 It's very dynamic too, picked lot's of inspiration from `watcheroo`.
+Except watcheroo doesn't work with localhost.
+
+Mine does! :smile:
 
 # Installation :sparkles:
  ### How to install this extension in your browser.
