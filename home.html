@@ -5,8 +5,8 @@
     <style>
       @import url('https://fonts.googleapis.com/css?family=Mina');
 
-      * {
-        /* border: 1px solid red; */
+      .red__border {
+        border: 1px solid red;
       }
 
       #aidahrector  {
@@ -26,6 +26,7 @@
         font-family: Mina;
         width: 100%;
         padding: 10px;
+        margin-top: 5px;
         margin-bottom: 10px;
         border-radius: 4px;
         border: none;
@@ -65,6 +66,15 @@
       .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
         opacity: 0;
       }
+
+      .notes ul {
+        -webkit-padding-start: 0px;
+      }
+
+      .notes ul li {
+        text-decoration: none;
+        font-weight: bold;
+      }
     </style>
   </head>
 
@@ -76,8 +86,10 @@
           <img src="./img/logo-48.png" alt="aidahbot__logo"/>
           <h3 class="app__name">{{name}}</h3>
         </header>
-        <input v-model='rule.from' class="from__url" placeholder="from url"/>
-        <input v-model='rule.to' class="to__url" placeholder="to url"/>
+        <label>Redirect this url :</label>
+        <input v-model='map.from' class="from__url" placeholder="https://cs.aidahbot.com"/>
+        <label>To this url: </label>
+        <input v-model='map.to' class="to__url" placeholder="http://localhost:8080/dashboard"/>
         <button class="create__map" @click='createMap'>create map</button>
 
         <!-- <button v-on:click="show = !show">
@@ -87,6 +99,21 @@
         <transition name="fade">
           <p class="notification" v-if="show">Mapping created!</p>
         </transition>
+
+        <div class="notes">
+          <ul>
+            <li>Always remember to add a protocol to both urls. (http || https)</li>
+          </ul>
+        </div>
+
+        <div class="mappings">
+          <ul>
+            <li v-for="map in maps">
+              {{map.from}} => {{map.to}}
+              <button @click="deleteEntry(map)">x</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     

@@ -1,20 +1,13 @@
-// var RuleMatcher = function(rules){
-//   var lastRequestId;
+console.log('content script running!')
 
-//   this.rules = rules;
+// chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+//   console.log('message recieved! ooo');
+//   const payload = JSON.parse(request.content);
 
-//   this.redirectOnMatch = function(request){
-//       var rule = _.find(rules, function(rule){ 
-//           return rule.isActive 
-//           && request.url.indexOf(rule.from) > -1 
-//           && request.requestId !== lastRequestId; 
-//       });
-
-//       if(rule){
-//           lastRequestId = request.requestId;
-//           return {
-//               redirectUrl : request.url.replace(rule.from, rule.to)
-//           };
-//       }
-//   };
-// };
+//   console.log(payload)
+// 	if(payload) {
+//     sendResponse({content: "response message"});
+//     // window.location.href= 'http://localhost:8080'
+//     return true;
+//   }
+// })
